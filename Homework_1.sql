@@ -30,7 +30,7 @@ WHERE city NOT LIKE '% %' AND city ILIKE 'L%a'
 
 SELECT payment_date, amount, payment_id, customer_id, staff_id, rental_id
 FROM payment
-WHERE payment_date BETWEEN cast('2005-06-17' AS timestamp) AND cast('2005-06-19' AS timestamp) AND amount > 1.00
+WHERE payment_date BETWEEN '2005-06-17' AND '2005-06-19 24:00:00' AND amount > 1.00
 ORDER BY payment_date 
 
 
