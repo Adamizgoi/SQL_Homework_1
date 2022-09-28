@@ -28,10 +28,10 @@ WHERE city NOT LIKE '% %' AND city ILIKE 'L%a'
 --Платежи нужно отсортировать по дате платежа.
 
 
-SELECT payment_date, amount, payment_id, customer_id, staff_id, rental_id
+SELECT payment_date::date AS date_of_payment, amount, payment_id, customer_id, staff_id, rental_id
 FROM payment
-WHERE payment_date BETWEEN '2005-06-17' AND '2005-06-19 24:00:00' AND amount > 1.00
-ORDER BY payment_date 
+WHERE payment_date::date BETWEEN '2005-06-17' AND '2005-06-19 24:00:00' AND amount > 1.00
+ORDER BY payment_date DESC
 
 
 --ЗАДАНИЕ №4
