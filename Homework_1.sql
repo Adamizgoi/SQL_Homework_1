@@ -29,18 +29,18 @@ WHERE city NOT LIKE '% %' AND city ILIKE 'L%a'
 
 
 SELECT payment_date, amount, payment_id, customer_id, staff_id, rental_id
-from payment
-where payment_date between cast('2005-06-17' as timestamp) and cast('2005-06-19' as timestamp) and amount > 1.00
-order by payment_date 
+FROM payment
+WHERE payment_date BETWEEN cast('2005-06-17' AS timestamp) AND cast('2005-06-19' AS timestamp) AND amount > 1.00
+ORDER BY payment_date 
 
 
 --ЗАДАНИЕ №4
 -- Выведите информацию о 10-ти последних платежах за прокат фильмов.
 
 SELECT payment_date, amount, payment_id, customer_id, staff_id, rental_id
-from payment
-order by payment_date desc, payment_id desc 
-limit 10
+FROM payment
+ORDER BY payment_date DESC, payment_id DESC 
+LIMIT 10
 
 
 --ЗАДАНИЕ №5
@@ -73,10 +73,10 @@ WHERE active = 1 AND first_name ILIKE 'KELLY' OR first_name ILIKE 'WILLIE'
 --и стоимость аренды указана от 0.00 до 3.00 включительно, 
 --а также фильмы c рейтингом "PG-13" и стоимостью аренды больше или равной 4.00.
 
-select rental_rate, rating, title || ' ' || release_year as film_info
-from film
-where rating::text ilike 'R' and rental_rate between 0.00 and 3.00 or rating::text ilike 'PG-13' and rental_rate >= 4.00
-order by rental_rate 
+SELECT rental_rate, rating, title || ' ' || release_year AS film_info
+FROM film
+WHERE rating::text ilike 'R' AND rental_rate BETWEEN 0.00 AND 3.00 OR rating::text ilike 'PG-13' AND rental_rate >= 4.00
+ORDER BY rental_rate 
 
 
 --ЗАДАНИЕ №2
@@ -93,7 +93,7 @@ LIMIT 3
 --в первой колонке должно быть значение, указанное до @, 
 --во второй колонке должно быть значение, указанное после @.
 
-SELECT customer_id, SPLIT_PART(email, '@'::VARCHAR, 1) AS email_name, SPLIT_PART(email, '@'::VARCHAR, 2) as email_domain 
+SELECT customer_id, SPLIT_PART(email, '@'::VARCHAR, 1) AS email_name, SPLIT_PART(email, '@'::VARCHAR, 2) AS email_domain 
 FROM customer
 
 
