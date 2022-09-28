@@ -63,8 +63,7 @@ FROM customer
 
 SELECT customer_id, LOWER(first_name), LOWER(last_name), store_id, email, address_id, create_date, last_update, activebool, active  
 FROM customer
-WHERE active = 1 AND first_name ILIKE 'KELLY' OR first_name ILIKE 'WILLIE'
-
+WHERE activebool AND first_name ILIKE 'KELLY' OR first_name ILIKE 'WILLIE'
 
 --======== ДОПОЛНИТЕЛЬНАЯ ЧАСТЬ ==============
 
